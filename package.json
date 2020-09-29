@@ -1,0 +1,24 @@
+{
+    "name": "crawler",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "dev": "nodemon index.js --ignore ./data --exec babel-node",
+        "start": "babel-node index.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "chalk": "^4.1.0",
+        "nodemon": "^2.0.4",
+        "puppeteer": "^5.3.1",
+        "@babel/core": "^7.8.7",
+        "@babel/node": "^7.8.7",
+        "@babel/plugin-transform-regenerator": "^7.8.7",
+        "@babel/plugin-transform-runtime": "^7.8.3",
+        "@babel/preset-env": "^7.8.7"
+    }
+}
