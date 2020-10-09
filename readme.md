@@ -1,6 +1,7 @@
 用Puppeteer做一个简单的自动爬虫示例
 ---
 
+
 > 本项目仅做参考，提供给新手的一个入门示例。此项目是利用`puppeteer`来爬取本人一个博客系统的数据
 
 
@@ -161,10 +162,14 @@ async function loadPage(i) {
 ### 自行下载运行看效果吧
 > [点击这里去看项目](https://github.com/sparksworld/crawler-demo)
 
-+ [原文地址](http://blog.fe-spark.cn/yong-puppeteerzuo-yi-ge-zi-dong-pa-chong-shi-li/)
+
 
 
 ### 参考
 > `Puppeteer`: https://github.com/puppeteer/puppeteer
 
 > `爬虫利器 Puppeteer 实战`： https://www.jianshu.com/p/a9a55c03f768
+
+
+
+#### [转载请注明出处，原文地址>>](http://blog.fe-spark.cn/yong-puppeteerzuo-yi-ge-zi-dong-pa-chong-shi-li/)
