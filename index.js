@@ -2,13 +2,12 @@ import puppeteer from "puppeteer";
 
 import Spinner from "./utils/spinner";
 import { resolve } from "path";
+import figlet from "figlet";
 import { writeFileSync, existsSync, mkdirSync } from "fs";
 
-import config from './config'
+import config from "./config";
 var tips = new Spinner();
 var { exec } = require("child_process");
-
-
 
 var ALL_PAGES = config.targetPageSize;
 var origin = config.origin;
@@ -16,7 +15,7 @@ var origin = config.origin;
 (async () => {
 	tips.start("项目初始化，已设置抓取" + ALL_PAGES + "页数据", "blue");
 
-    // 子进程执行shell命令rm，慎重修改
+	// 子进程执行shell命令rm，慎重修改
 	exec("rm -rf ./data", (err, stdout, stderr) => {
 		if (err) {
 			console.log(err);
@@ -45,7 +44,7 @@ var origin = config.origin;
 		if (existsSync(_savePath)) {
 			tips.setText("发现存在文件夹", "yellow");
 		} else {
-			tips.warn("发现不存在文件夹，已进行创建", "yellow");
+			tips.warn("存储文件夹已清理，将进行再次创建“/data”", "yellow");
 			mkdirSync(_savePath);
 			tips.start("创建完毕");
 		}
@@ -55,7 +54,24 @@ var origin = config.origin;
 			"utf-8"
 		);
 		tips.succeed("第" + (i + 1) + "页存入成功！");
-		if (i + 1 == ALL_PAGES) tips.succeed("抓取完毕，停止操作");
+		if (i + 1 == ALL_PAGES) {
+			tips.succeed("抓取完毕，将停止操作~");
+			figlet(
+				"Task Over !!",
+				{
+					font: "Ghost",
+					horizontalLayout: "default",
+					verticalLayout: "default",
+					whitespaceBreak: true
+				},
+				(err, data) => {
+					if (err) {
+						console.log("Some thing about figlet is wrong!");
+					}
+					console.log(data);
+				}
+			);
+		}
 	}
 	async function loadPage(i) {
 		var index = i;
