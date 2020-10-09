@@ -1,11 +1,11 @@
 import puppeteer from "puppeteer";
+import config from "./config";
 
 import Spinner from "./utils/spinner";
 import { resolve } from "path";
 import figlet from "figlet";
 import { writeFileSync, existsSync, mkdirSync } from "fs";
 
-import config from "./config";
 var tips = new Spinner();
 var { exec } = require("child_process");
 
