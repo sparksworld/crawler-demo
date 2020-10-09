@@ -42,6 +42,9 @@
 import puppeteer from "puppeteer";
 import config from "./config";
 
+var ALL_PAGES = config.targetPageSize;
+var origin = config.origin;
+
 (async () => {
 	var browser = await puppeteer.launch({
 		headless: false,
