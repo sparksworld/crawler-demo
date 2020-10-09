@@ -157,6 +157,10 @@ async function loadPage(i) {
 }
 ```
 
+### 最终结果
+![20201009175238-readme_2020-10-09](https://i.loli.net/2020/10/09/CusKtMQB4RrPnZi.png)
+
+
 > 上面代码使用的es2016的api，此项目已配置`babel`,直接运行即可
 
 ### 自行下载运行看效果吧
