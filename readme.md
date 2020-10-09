@@ -6,7 +6,11 @@
 
 - ### 先看演示
 
-![tutieshi_640x494_16s-readme_2020-09-29](https://cdn.jsdelivr.net/gh/sparksworld/upload-images/images/tutieshi_640x494_16s-readme_2020-09-29.gif)
+![puppeteer-readme_2020-10-09](https://cdn.jsdelivr.net/gh/sparksworld/upload-images/images/puppeteer-readme_2020-10-09.gif#80%)
+
+
+
+
 > 注意：因为是我自己的个人博客，服务器又是在国外，在国内访问较慢。如需运行本demo出现超时，属于正常现象，这种情况下建议开全局代理再试下 
 
 
