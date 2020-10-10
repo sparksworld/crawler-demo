@@ -46,8 +46,8 @@
 import puppeteer from "puppeteer";
 import config from "./config";
 
-var ALL_PAGES = config.allPages; //抓取的目标网站 [String]
-var ORIGIN = config.origin; //抓取的页数 [Number]
+var ALL_PAGES = config.allPages; //抓取的页数 [Number]
+var ORIGIN = config.origin; //抓取的目标网站 [String]
 
 (async () => {
     // 启动puppeteer
