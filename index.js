@@ -9,8 +9,8 @@ import { writeFileSync, existsSync, mkdirSync } from "fs";
 var tips = new Spinner();
 var { exec } = require("child_process");
 
-var ALL_PAGES = config.targetPageSize;
-var origin = config.origin;
+var ALL_PAGES = config.allPages; //抓取的目标网站 String
+var ORIGIN = config.origin; //抓取的页数
 
 (async () => {
 	tips.start("项目初始化，已设置抓取" + ALL_PAGES + "页数据", "blue");
@@ -77,7 +77,7 @@ var origin = config.origin;
 		var index = i;
 		try {
 			await page.goto(
-				`${origin}/${i == 0 ? "" : "page/" + parseInt(i + 1) + "/"}`,
+				`${ORIGIN}/${i == 0 ? "" : "page/" + parseInt(i + 1) + "/"}`,
 				{
 					waitUntil: "networkidle0",
 					timeout: 60000
@@ -130,7 +130,7 @@ var origin = config.origin;
 				"blue"
 			);
 			try {
-				await page.goto(`${origin}${href[i]}`, {
+				await page.goto(`${ORIGIN}${href[i]}`, {
 					waitUntil: "networkidle0",
 					timeout: 60000
 				});

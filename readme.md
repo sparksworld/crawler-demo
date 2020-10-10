@@ -1,16 +1,16 @@
 用Puppeteer做一个简单的数据爬虫
 ---
 
-
 > 本项目仅做参考，提供给新手的一个入门示例。此项目是利用`puppeteer`来爬取本人一个博客系统的数据
 
 
 - ### 先看演示
+> 因为禁用了`headless`，所以会弹出浏览器窗口，也是为了容易调试看效果
 
 ![puppeteer-readme_2020-10-09](https://i.loli.net/2020/10/09/hbCUaTPnBAmoSwF.gif#80%)
 
 
-> 注意：因为是我自己的个人博客，服务器又是在国外，在国内访问较慢。如需运行本demo出现超时，属于正常现象，这种情况下建议开全局代理再试下 
+> 注意：因为是我自己的个人博客，服务器又是在国外，在国内访问较慢。如运行本demo出现超时，属于正常现象，这种情况下建议开启科学上网（搞技术的这就不多说了吧），开启全局代理试下 
 
 ### 目录结构
 
@@ -42,10 +42,11 @@
 import puppeteer from "puppeteer";
 import config from "./config";
 
-var ALL_PAGES = config.targetPageSize;
-var origin = config.origin;
+var ALL_PAGES = config.allPages; //抓取的目标网站 [String]
+var ORIGIN = config.origin; //抓取的页数 [Number]
 
 (async () => {
+    // 启动puppeteer
 	var browser = await puppeteer.launch({
 		headless: false,
 		devtools: false,
@@ -54,7 +55,7 @@ var origin = config.origin;
 			height: 1000
 		}
 	});
-
+    // 初始化一个页面
 	var page = await browser.newPage();
     
 
@@ -68,7 +69,7 @@ var origin = config.origin;
 
     > 打开首页就可以看到一个`全部博文`的区域 
 
-    ![20201009162150-readme_2020-10-09](https://i.loli.net/2020/10/09/yljeEmZ3U7VA4oO.png)
+    ![20201009162150-readme_2020-10-09](//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68ce871187c14460ac22d02e814d939c~tplv-k3u1fbpfcp-zoom-1.image)
 
     > 分析：
     1. 每页都有6篇文章
@@ -100,7 +101,7 @@ async function loadPage(i) {
     // goto方法是跳转指定页面
     await page.goto(
         // 这里判断一下，因为首页直接就是第一页，从第二页开始后面才要拼接`page/页数/`
-        `${origin}/${i == 0 ? "" : "page/" + parseInt(i + 1) + "/"}`,
+        `${ORIGIN}/${i == 0 ? "" : "page/" + parseInt(i + 1) + "/"}`,
         {
             waitUntil: "networkidle0",
             timeout: 60000
@@ -144,7 +145,7 @@ async function loadPage(i) {
     });
     // 以上操作并没有获取博文的内容，下面要进到每篇博文里面，提取博文内容
     for (var i = 0; i < href.length; i++) {
-        await page.goto(`${origin}${href[i]}`, {
+        await page.goto(`${ORIGIN}${href[i]}`, {
             waitUntil: "networkidle0",
             timeout: 60000
         });
@@ -159,12 +160,13 @@ async function loadPage(i) {
     return result;
 }
 ```
-
 ### 最终结果
-![20201009175238-readme_2020-10-09](https://i.loli.net/2020/10/09/CusKtMQB4RrPnZi.png)
 
+![20201009175238-readme_2020-10-09](//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82e0677e9e234ef79cd829bdf02f3aac~tplv-k3u1fbpfcp-zoom-1.image)
 
-> 上面代码使用的es2016的api，此项目已配置`babel`,直接运行即可
+> 爬取的数据并没有去除空格，有兴趣的同学可以自己改一下 
+
+> 上面代码使用的es2016，此项目已配置`babel`,直接运行即可
 
 ### 自行下载运行看效果吧
 > [点击这里去看项目](https://github.com/sparksworld/crawler-demo)
