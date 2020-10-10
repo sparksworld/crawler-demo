@@ -162,7 +162,7 @@ async function loadPage(i) {
 ```
 ### 最终结果
 
-![20201009175238-readme_2020-10-09](//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/82e0677e9e234ef79cd829bdf02f3aac~tplv-k3u1fbpfcp-zoom-1.image)
+![20201010092505-readme_2020-10-10](https://i.loli.net/2020/10/10/tB2fopPxG1lQAZD.png)
 
 > 爬取的数据并没有去除空格，有兴趣的同学可以自己改一下 
 
