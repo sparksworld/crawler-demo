@@ -69,7 +69,7 @@ var ORIGIN = config.origin; //抓取的页数 [Number]
 
     > 打开首页就可以看到一个`全部博文`的区域 
 
-    ![20201009162150-readme_2020-10-09](//p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68ce871187c14460ac22d02e814d939c~tplv-k3u1fbpfcp-zoom-1.image)
+    ![20201010104745-readme_2020-10-10](https://i.loli.net/2020/10/10/YVciL7hRxktpdJF.png)
 
     > 分析：
     1. 每页都有6篇文章
